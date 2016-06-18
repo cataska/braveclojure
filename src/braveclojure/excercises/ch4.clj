@@ -40,7 +40,7 @@
   [suspect records]
   (conj records suspect))
 
-;; 3.
+;; 3. Write a function, validate, which will check that :name and :glitter-index are present when you append. The validate function should accept two arguments: a map of keywords to validating functions, similar to conversions, and the record to be validated.
 (defn has-name
   [m]
   (contains? m :name))
@@ -55,6 +55,7 @@
   [validations record]
   (every? true? (map #((get validations %) record) vamp-keys)))
 
+;; 4. Write a function that will take your list of maps and convert it back to a CSV string. You’ll need to use the clojure.string/join function.
 (defn to-csv
   [records]
   (clojure.string/join "\n"
